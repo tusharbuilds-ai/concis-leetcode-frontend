@@ -6,8 +6,8 @@ import ReactMarkdown from "react-markdown"
 const API_URL = import.meta.env.VITE_API_URL;
 const WS_URL = import.meta.env.VITE_WS_URL;
 
-console.log(API_URL)
-console.log(WS_URL)
+// console.log(API_URL)
+// console.log(WS_URL)
 
 function cleanHtml(html = "") {
     const parser = new DOMParser();
