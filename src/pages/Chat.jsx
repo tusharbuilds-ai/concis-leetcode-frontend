@@ -93,7 +93,7 @@ export default function Chat() {
 
     const ws =
         new WebSocket(
-            `${WS_URL}${sessionId}`
+            `${WS_URL}/${sessionId}`
         );
 
     ws.onopen = () => {
