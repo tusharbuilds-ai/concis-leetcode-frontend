@@ -6,6 +6,9 @@ import ReactMarkdown from "react-markdown"
 const API_URL = import.meta.env.VITE_API_URL;
 const WS_URL = import.meta.env.VITE_WS_URL;
 
+console.log(API_URL)
+console.log(WS_URL)
+
 function cleanHtml(html = "") {
     const parser = new DOMParser();
     const doc = parser.parseFromString(
@@ -19,6 +22,8 @@ function cleanHtml(html = "") {
 export default function Chat() {
 
     const location = useLocation();
+
+    const [activeTab,setActiveTab] = useState("chat")
 
     const problemSlug =
         location.state?.problemSlug;
@@ -45,7 +50,7 @@ export default function Chat() {
 
                 const response =
                     await axios.get(
-                        `${API_URL}select?titleSlug=${problemSlug}`
+                        `${API_URL}/select?titleSlug=${problemSlug}`
                     );
 
                 console.log(
@@ -93,7 +98,7 @@ export default function Chat() {
 
     const ws =
         new WebSocket(
-            `${WS_URL}/${sessionId}`
+            `${WS_URL}/ws/${sessionId}`
         );
 
     ws.onopen = () => {
@@ -230,12 +235,12 @@ export default function Chat() {
 
         return (
             <div className="
-                h-screen
+                h-dvh
                 bg-zinc-950
                 text-white
                 flex
-                items-center
-                justify-center
+                flex-col
+                md:flex-row
                 whitespace-pre-wrap
             ">
                 Loading Problem...
