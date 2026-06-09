@@ -50,7 +50,7 @@ export default function Chat() {
 
                 const response =
                     await axios.get(
-                        `${API_URL}/select?titleSlug=${problemSlug}`
+                        `https://leetcode.concis.in/select?titleSlug=${problemSlug}`
                     );
 
                 console.log(
@@ -98,7 +98,7 @@ export default function Chat() {
 
     const ws =
         new WebSocket(
-            `${WS_URL}/ws/${sessionId}`
+            `wss://backend.concis.in/ws/${sessionId}`
         );
 
     ws.onopen = () => {
